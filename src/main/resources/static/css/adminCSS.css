@@ -1,0 +1,70 @@
+body{
+    background-color: #dddddd;
+    
+}
+
+
+#cabecalho{
+    background-color: #1b273f;
+}
+#cabecalho a{
+    color: white;
+    text-decoration: none;
+}
+
+
+    
+
+#pag #menu {
+    background-color: #1b273f;
+    
+}
+#pag #menu img{
+    height: 75px;
+    width: 75px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+    
+}
+#pag #menu h4{
+    text-align: center;
+}
+
+#pag a{
+    text-decoration: none;
+}
+
+#pag #menu #collapse1 #col{
+    background-color: #1b273f;
+    
+}
+#pag #menu #collapse2 #col{
+    background-color: #1b273f;
+    
+}
+#pag #menu #collapse3 #col{
+    background-color: #1b273f;
+    
+}
+#pag #menu #collapse4 #col{
+    background-color: #1b273f;
+    
+}
+#pag #menu h4  {
+    color: white;
+    
+}
+
+.col-sm-10 .container-fluid .row .col-sm-12 .row .col-sm-3 .well-01{
+    background-color: rgb(236, 236, 157);
+}
+.col-sm-10 .container-fluid .row .col-sm-12 .row .col-sm-3 .well-02{
+    background-color: rgb(110, 205, 218);
+}
+.col-sm-10 .container-fluid .row .col-sm-12 .row .col-sm-3 .well-03{
+    background-color: rgb(134, 161, 252);
+}
+.col-sm-10 .container-fluid .row .col-sm-12 .row .col-sm-3 .well-04{
+    background-color: rgb(255, 155, 155);
+}
