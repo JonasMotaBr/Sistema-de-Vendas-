@@ -142,30 +142,62 @@
 					<a  href="/pagina_usuario"> <button type="button" class="btn btn-success">Minha conta</button></a>
 					<a href="/adminpag"><button type="button"
 							class="btn btn-success">Voltar</button> </a>
+					<h1>Cliente:</h1>		
 					<table class="fl-table">
 						<thead>
 							<tr>
-								<th>Código venda</th>
-								<th>Data</th>
-								<th>Forma de pagamento</th>
-								<th>Total</th>
-								<th>Visualizar venda</th>
+								<th>Código Cliente</th>
+								<th>NOME FANTASIA</th>
+								<th>NOME CLIENTE</th>
+								<th>CPF / CNPJ</th>
+								<th>RAZÃO SOCIAL</th>
+								<th>E-MAIL</th>
 							</tr>
 						</thead>
 						<tbody>
-						     <tr th:each="lista : ${listavenda}">
-								<td th:text=${lista.id}></td>
-								<td th:text=${lista.data}></td>
-								<td th:text=${lista.formaPagamento}></td>
-								<td th:text=${lista.total}></td>
-								<td><a th:href="@{/actionVisualizarVenda/{idvenda}(idvenda=${lista.id})}">Visualizar</a></td>
+						       <tr >
+								<td th:text=${clientevenda.id}></td>
+								<td th:text=${clientevenda.nome_fantasia}></td>
+								<td th:text=${clientevenda.nome_cliente}></td>
+								<td th:text=${clientevenda.cpf_cnpj}></td>
+								<td th:text=${clientevenda.razao_social}></td>
+								<td th:text=${clientevenda.email}></td>
+						
+								
 							</tr>
-							
 						<tbody>
 					</table>
 					
+					<br>
+					<h1>Produtos:</h1>
+					<table class="fl-table">
+						<thead>
+							<tr>
+								<th>CODIGO</th>
+								<th>DESCRIÇÂO</th>
+								<th>Preço</th>
+								<th>Quantidade</th>
+								<th>Preço custo</th>
+								<th>Codigo Barras</th>
+
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="prod : ${listaVisualizarVenda}">
+								<td th:text=${prod.id}></td>
+								<td th:text=${prod.descricao}></td>
+								<td th:text=${prod.preco}></td>
+								<td th:text=${prod.quantidade}></td>
+								<td th:text=${prod.preco_custo}></td>
+								<td th:text=${prod.codigo_barra}></td>
+								
+							</tr>
+						<tbody>
+					</table>
 					
 				</div>
+
+                        
 
 
 			</div>

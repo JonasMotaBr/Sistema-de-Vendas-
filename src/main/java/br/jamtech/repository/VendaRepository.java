@@ -1,5 +1,7 @@
 package br.jamtech.repository;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -25,4 +27,7 @@ public interface VendaRepository extends JpaRepository<VendaModel, Long> {
 	@Query("update VendaModel v set v.formaPagamento = ?1 where v.id = ?2")
 	void inseretipoVenda(String formapag, Long idvenda);
 	
+	
+	@Query("select p from VendaModel p ")
+	List<VendaModel> listaVenda();
 }

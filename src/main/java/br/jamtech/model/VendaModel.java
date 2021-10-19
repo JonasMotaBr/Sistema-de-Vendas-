@@ -37,7 +37,7 @@ public class VendaModel implements Serializable{
 	
 	private Date data;
 	private String formaPagamento;
-	
+	private Double total;
 	
 	
 
@@ -75,6 +75,12 @@ public class VendaModel implements Serializable{
 	}
 
 	
+	public Double getTotal() {
+		return total;
+	}
+	public void setTotal(Double total) {
+		this.total = total;
+	}
 	public ClienteModel getClienteModel() {
 		return clienteModel;
 	}

@@ -211,11 +211,11 @@
 						<table class="table">
 							<thead class="thead-dark">
 								<tr>
-									<th>CODIGO</th>
-									<th>DESCRIÇÂO</th>
+									<th>Cod.</th>
+									<th>Descrição</th>
 									<th>Preço</th>
-									<th>Quantidade</th>
-									<th></th>
+									<th>Quant.</th>
+									<th>Remover</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -225,8 +225,14 @@
 									<td th:text=${prod.preco}></td>
 									<td th:text=${prod.quantidade_vendido}></td>
 								</tr>
-
 							</tbody>
+							<thead class="thead-dark">
+								<tr>
+									<th>Total:</th>
+									<th th:text=${valorTotal}></th>
+								</tr>
+							</thead>
+					
 
 						</table>
 

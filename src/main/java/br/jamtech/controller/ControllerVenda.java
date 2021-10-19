@@ -42,8 +42,8 @@ public class ControllerVenda {
     private List<ProdutoModel> listaproduto = new ArrayList<ProdutoModel>();
 	private VendaModel venda = new VendaModel();
 	private List<ProdutoModel> listaparalela = new ArrayList<ProdutoModel>();
-	
-	
+	private List<Double> valorTotal  = new ArrayList<Double>();;
+	private Double val;
 	public String getUsuarioLogado(){
 		//passar usuario 
 				Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -114,13 +114,22 @@ public class ControllerVenda {
 		    	   produto.setQuantidade_vendido(produtoModel.getQuantidade_vendido());
 		    	   listaparalela.add(produto);
 		    	Iterable<ProdutoModel> produtoIt = listaparalela;
-		   		//andView.addObject("listaprodutos", produtoIt);
+		    	 double valor=0;
+		    	 double total=0;
+		    	 valor=+(produto.getPreco()*produto.getQuantidade_vendido());
+		    	valorTotal.add(valor);		
+		    	
+                for(Double t : valorTotal ) {
+                	total += t.doubleValue();                }
+                val = total;
+		    	andView.addObject("valorTotal",total );
 		   		andView.addObject("listaprodutos", produtoIt);
 		   		andView.addObject("username", getUsuarioLogado());
 		    	   return andView;
 		       }
 		}
 		while(produtoModel.getId()==null) {
+			venda.setTotal(val);
 			venda.setData(new Date());
 			venda.setFormaPagamento(formaPagamento);
 			venda.setListaproduto(listaproduto);
@@ -138,7 +147,7 @@ public class ControllerVenda {
 				
 				    listaproduto.clear();
 					listaparalela.clear();
-					
+					valorTotal.clear();
 					if(informacliente.equalsIgnoreCase("true")) {
 						List<ClienteModel> listaCliente = new ArrayList<>();
 						listaCliente = clienteRepository.findAll();
@@ -171,7 +180,22 @@ public class ControllerVenda {
 	@RequestMapping(method = RequestMethod.GET, value = "/listavenda")
 	public ModelAndView listadeVendas() {
 		ModelAndView modelview = new ModelAndView("/relatoriosTemp/listavenda");
+		List<VendaModel> listavenda = new ArrayList<VendaModel>();
+		listavenda = vendaRepository.listaVenda();
+		modelview.addObject("listavenda", listavenda);
 		modelview.addObject("username", getUsuarioLogado());
+		return modelview;
+	}
+	
+	
+	@GetMapping("/actionVisualizarVenda/{idvenda}")
+	public ModelAndView removerProduto(@PathVariable("idvenda") Long idvenda) {
+		ModelAndView modelview = new ModelAndView("/relatoriosTemp/visualizarvenda");
+		VendaModel visulVenda = vendaRepository.buscarVendaPorId(idvenda);
+		
+		 modelview.addObject("listaVisualizarVenda", visulVenda.getListaproduto());
+		
+		modelview.addObject("clientevenda", visulVenda.getClienteModel());
 		return modelview;
 	}
 	

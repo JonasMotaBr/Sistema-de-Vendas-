@@ -47,7 +47,7 @@ class JamtechApplicationTests {
 	public void addproduto() {
 		ProdutoModel pd = new ProdutoModel();
 		pd.setCodigo_barra(123);
-		pd.setDescricao("gabinete corsair");
+		pd.setDescricao("Fonte");
 		pd.setPreco(50.00);
 		pd.setPreco_custo(25.00);
 		pd.setQuantidade(2);
@@ -124,20 +124,13 @@ class JamtechApplicationTests {
 	
 	@Test
 	public void listaVenda() {
-		VendaModel venda = new VendaModel();
-		venda = vendaRepository.buscarVendaPorId(8L);
 		
-        List<ProdutoModel> p = venda.getListaproduto();	
-	
-		for(ProdutoModel lista : p) {
-			System.out.println(lista.getDescricao());
+		List<VendaModel> listavenda = new ArrayList<VendaModel>();
+		listavenda = vendaRepository.listaVenda();
+		
+		for(VendaModel v : listavenda) {
+			System.out.println(v.getId());
 		}
-		
-		//-----
-		 ProdutoId prId = new ProdutoId();
-		 prId = produtoidrepository.buscarid(9L);
-		 System.out.println(prId.getQunatidadeProdutoVendido());
-		
 		
 	}
 	@Test
