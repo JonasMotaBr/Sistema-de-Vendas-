@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,12 +11,18 @@
     <!-- Bootstrap-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <!-- CSS-->
-    <link rel="stylesheet" href="css/adminCSS.css">
+    <link type="text/css" rel="stylesheet"
+	href="/materialize/css/adminCSS.css" media="screen,projection" />
     <!-- JavaScript-->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="js/hora.js"></script>
+   <script src="https://code.jquery.com/jquery-1.11.2.js"></script>
+		<script type="text/javascript">
+			jQuery(window).load(function($){
+				atualizaRelogio();
+			});
+		</script>
 
 
 </head>
@@ -25,12 +32,12 @@
     <!-- cabeÃ§alho-->
 <nav id="cabecalho" class="navbar navbar-expand-md ">  
     <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
-      <a class="navbar-brand" href="#"><img src="img/logo.png" height="50px" width="75px"></a>
+      <a class="navbar-brand" href="/adminpag"><img src="/materialize/img/logo.png" height="50px" width="75px"></a>
         <ul class="navbar-nav ml-auto">
            
            
             <li class="nav-item">
-              <a href="login.html" >
+              <a href="/pagina_usuario" >
                 <button type="button" class="btn btn-success">Minha conta</button>     
               </a>
           </li>
@@ -42,20 +49,14 @@
                   </a>
       
                   <div class="dropdown-menu">
-                      <a href="dados.html" class="dropdown-item">Minha Conta</a>
-                      <a href="compras.html" class="dropdown-item">Compras</a>
-                      <a href="dados.html" class="dropdown-item">EndereÃ§o</a>
+                      <a href="/pagina_usuario" class="dropdown-item">Minha Conta</a>
+                      <a href="/pagina_usuario" class="dropdown-item">Endereço</a>
                   </div>
               </li>
              </ul>
         </li>
-        <li class="nav-item">
-          <a href="cadastro.html">
-            <button type="button" class="btn btn-primary">#####</button>
-          </a>
-        </li>
         <li class="nav-item col-1">
-          <a href="funcionario-login.html">
+          <a href="/logout">
             <button type="button" class="btn btn-primary">Sair</button>
           </a>
         </li>
@@ -70,78 +71,68 @@
        <!--Menu Lateral--> 
       <div id="menu" class="col-sm-2 sidenav" >
         <br>
-        <img src="img/user.png" >
-        <h4>Nome Usuario</h4> 
+        <img src="/materialize/img/user.png" >
+        <span  th:text="${username}"></span>
+        
         <br><br>
         <p>
           <button class="btn btn-primary btn-lg btn-block" type="button" data-toggle="collapse" data-target="#collapse1" aria-expanded="false" aria-controls="collapse1">
-            OpÃ§Ã£o 01
+            ESTOQUE
           </button>
         </p>
         <div class="collapse" id="collapse1">
           <div  id="col" class="card card-body">
-            <button type="button" class="btn btn-info">Info</button>
-            <button type="button" class="btn btn-info">Info</button>
-            <button type="button" class="btn btn-info">Info</button>
-            <button type="button" class="btn btn-info">Info</button>
+            <a href="/cadastrarprodutos"><button type="button" class="btn btn-info">CADASTRAR PRODUTOS</button></a>
+             <a href="/listaprodutos"><button type="button" class="btn btn-info">VISUALIZAR PRODUTOS</button></a>
           </div>
         </div>
         <br><br>
         <p>
           <button class="btn btn-primary btn-lg btn-block" type="button" data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
-            OpÃ§Ã£o 02
+            FRENTE DE CAIXA
           </button>
         </p>
         <div class="collapse" id="collapse2">
           <div  id="col" class="card card-body">
-            <button type="button" class="btn btn-info">Info</button>
-            <button type="button" class="btn btn-info">Info</button>
-            <button type="button" class="btn btn-info">Info</button>
-            <button type="button" class="btn btn-info">Info</button>
+            <button type="button" class="btn btn-info">INICIAR VENDA</button>
           </div>
         </div>
         <br><br>
         <p>
           <button class="btn btn-primary btn-lg btn-block" type="button" data-toggle="collapse" data-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
-            OpÃ§Ã£o 03
+           RELATÓRIOS
           </button>
         </p>
         <div class="collapse" id="collapse3">
           <div  id="col" class="card card-body">
-            <button type="button" class="btn btn-info">Info</button>
-            <button type="button" class="btn btn-info">Info</button>
-            <button type="button" class="btn btn-info">Info</button>
-            <button type="button" class="btn btn-info">Info</button>
+            <button type="button" class="btn btn-info">RELATÓRIO DE VENDAS</button>
+            <button type="button" class="btn btn-info" onclick=" permissaonegada()">FECHAMENTO DE CAIXA</button>
+            <button type="button" class="btn btn-info" onclick=" permissaonegada()">GRÁFICO</button>
           </div>
         </div>
         <br><br>
         <p>
           <button class="btn btn-primary btn-lg btn-block" type="button" data-toggle="collapse" data-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
-            OpÃ§Ã£o 04
+            CLIENTES
           </button>
         </p>
         <div class="collapse" id="collapse4">
           <div  id="col" class="card card-body">
-            <button type="button" class="btn btn-info">Info</button>
-            <button type="button" class="btn btn-info">Info</button>
-            <button type="button" class="btn btn-info">Info</button>
-            <button type="button" class="btn btn-info">Info</button>
+             <a href="/telaclientes"><button type="button" class="btn btn-info">LISTA DE CLIENTES</button></a>
+            <a href="/cadastrarclientes"><button type="button" class="btn btn-info">CADASTRAR CLIENTES</button></a>
           </div>
         </div>
         
       </div>
       <!-- Fim Menu Lateral--> 
 
-      <div class="col-sm-10">
+      <div class="col-sm-10" id="corpo" >
         
           <div class="container-fluid">
             <div class="row content">
 
-              <div class="col-sm-12">
-                <div class="well">
-                  <h4 onload="startTime()"></h4>
-                  <p>Some text..</p>
-                </div>
+              <div class="col-sm-12 ">
+                <br><br><br>
                 <div class="row">
                   <div class="col-sm-3">
                     <a href="/listaprodutos"><button class="btn btn-outline-warning btn-lg btn-block">
@@ -153,7 +144,7 @@
                    </a>
                   </div>
                   <div class="col-sm-3">
-                    <a href="#"><button class="btn btn-outline-info btn-lg btn-block">
+                    <a href="/caixavenda"><button class="btn btn-outline-info btn-lg btn-block">
                      <div class="well-02">
                        <h4>CAIXA</h4>
                        <p>-</p> 
@@ -161,15 +152,15 @@
                     </button></a>
                   </div>
                   <div class="col-sm-3">
-                    <a href="#"><button class="btn btn-outline-primary btn-lg btn-block">
+                    <a href="/listavenda"><button class="btn btn-outline-primary btn-lg btn-block"  >
                       <div class="well-03">
-                       <h4>RELATÃRIOS</h4>
+                       <h4>RELATÓRIOS</h4>
                        <p>-</p> 
                       </div>
                     </button></a>  
                   </div>
                   <div class="col-sm-3">
-                    <a href="#"><button class="btn btn-outline-danger btn-lg btn-block">
+                    <a href="/telaclientes"><button class="btn btn-outline-danger btn-lg btn-block">
                      <div class="well-04">
                        <h4>CLIENTES</h4>
                        <p>-</p> 
@@ -177,44 +168,13 @@
                     </button></a>
                   </div>
                 </div>
-                <div class="row">
-                  <div class="col-sm-4">
-                    <div class="well">
-                      <p>Text</p> 
-                      <p>Text</p> 
-                      <p>Text</p> 
-                    </div>
-                  </div>
-                  <div class="col-sm-4">
-                    <div class="well">
-                      <p>Text</p> 
-                      <p>Text</p> 
-                      <p>Text</p> 
-                    </div>
-                  </div>
-                  <div class="col-sm-4">
-                    <div class="well">
-                      <p>Text</p> 
-                      <p>Text</p> 
-                      <p>Text</p> 
-                    </div>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-sm-8">
-                    <div class="well">
-                      <p>Text</p> 
-                    </div>
-                  </div>
-                  <div class="col-sm-4">
-                    <div class="well">
-                      <p>Para quem nÃ£o conhece, âLorem Ipsumâ ou âdummy textâ Ã© um texto utilizado para preencher o espaÃ§o de texto em publicaÃ§Ãµes (jornais, revistas, e websites), com a finalidade de verificar o layout, tipografia e formataÃ§Ã£o antes de utilizar conteÃºdo real.
-                        No nosso caso, Ã© muito usado em wireframes e sketches para preencher algum bloco de texto em que o conteÃºdo final nÃ£o tenha muita importÃ¢ncia para aquilo que queremos demonstrar. O lorem ipsum simula com razoÃ¡vel fidelidade um texto real, por possuir palavras de diversos tamanhos e sinais de pontuaÃ§Ã£o, permitindo testar tambÃ©m a forma como o texto flui nas caixas e campos de formataÃ§Ã£o.
-                        Com o passar do tempo foram surgindo vÃ¡rias ferramentas online que geram esses blocos de textos automaticamente. Isso facilita bastante a vida dos Designers, que sÃ³ precisam copiar e colar esse texto no wireframe/layout que estÃ¡ sendo criado.
-                        Como nÃ£o podia deixar de ser, tambÃ©m apareceram vÃ¡rias versÃµes bem humoradas desses geradores de lorem ipsum, como vocÃª vÃª na lista abaixo.
-                        Uma boa dica para deixar seus wireframes um pouco mais divertidos.</p> 
-                    </div>
-                  </div>
+                <div class="hora-data">
+                  <div>
+			        <output id="data" style="font-family: 'arial black', 'avant garde'; font-size: 16px;"></output>
+		         </div>
+		          <div >
+			        <output id="hora" style="font-family: 'arial black', 'avant garde'; font-size: 16px; "></output>				
+		          </div>
                 </div>
               </div>
             </div>
@@ -223,15 +183,51 @@
       
         
       </div>
+    	
+     
     </div>
   </div>
   
-  <footer class="container-fluid">
-    <p>Footer Text</p>
-  </footer>
   
+  <script type="text/javascript">
+  
+
+       
+  function atualizaRelogio(){ 
+		var momentoAtual = new Date();
+		
+		var vhora = momentoAtual.getHours();
+		var vminuto = momentoAtual.getMinutes();
+		var vsegundo = momentoAtual.getSeconds();
+		
+		var vdia = momentoAtual.getDate();
+		var vmes = momentoAtual.getMonth() + 1;
+		var vano = momentoAtual.getFullYear();
+		
+		if (vdia < 10){ vdia = "0" + vdia;}
+		if (vmes < 10){ vmes = "0" + vmes;}
+		if (vhora < 10){ vhora = "0" + vhora;}
+		if (vminuto < 10){ vminuto = "0" + vminuto;}
+		if (vsegundo < 10){ vsegundo = "0" + vsegundo;}
+
+		dataFormat = vdia + " / " + vmes + " / " + vano;
+		horaFormat = vhora + " : " + vminuto + " : " + vsegundo;
+
+		document.getElementById("data").innerHTML = dataFormat;
+		document.getElementById("hora").innerHTML = horaFormat;
+
+		setTimeout("atualizaRelogio()",1000);
+	}
+		
+		function permissaonegada() {
+			alert("Conta de usuário sem acesso. Contate o administrador do sistema");
+			
+		}
+	</script>	
     
 
 
 </body>
+
+
 </html>

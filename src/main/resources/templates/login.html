@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Jam tech</title>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
+<link type="text/css" rel="stylesheet"
+	href="/materialize/css/indexCSS.css" media="screen,projection" />
+
+
+<style type="text/css">
+form input[type=submit] {
+	color: white;
+}
+</style>
+</head>
+<body>
+
+	<div class="login">
+		<h1>Login</h1>
+
+		<form action="login" method="post">
+			<input type="text" name="username" placeholder="Login"
+				required="required" /> <input type="password" name="password"
+				placeholder="Senha" required="required" />
+			<button type="submit" class="btn btn-success btn-block btn-large">Login</button>
+		</form>
+
+	</div>
+
+
+
+</body>
+</html>

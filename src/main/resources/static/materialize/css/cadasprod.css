@@ -1,6 +1,7 @@
 @charset "ISO-8859-1";
 body{
-    background-color: #dddddd;
+    background-color: #c9dce6;
+    line-height: 1.75;
     
 }
 
@@ -18,7 +19,7 @@ body{
 
 #pag #menu {
     background-color: #1b273f;
-    
+      text-align: center;
 }
 #pag #menu img{
     height: 75px;
@@ -56,6 +57,11 @@ body{
     color: white;
     
 }
+#pag #menu span  {
+    color: white;
+    font-family: 'arial black', 'avant garde'; font-size: 16px;
+}
+
 
 .col-sm-10 .container-fluid .row .col-sm-12 .row .col-sm-3 .well-01{
     background-color: rgb(236, 236, 157);

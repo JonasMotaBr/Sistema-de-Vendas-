@@ -1,14 +1,29 @@
 body{
-    background-color: #dddddd;
+   display: block;
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    text-align: center;
+    color: white;
+    background: url(../img/Banner-Site.png) no-repeat bottom center scroll;
+    background-position: 30% 45%;
+    background-color: black;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    background-image: url(/materialize/img/background-image.png);
+    background-color: #c9dce6;
     
 }
+
 
 
 #cabecalho{
     background-color: #1b273f;
 }
 #cabecalho a{
-    color: white;
+    color: 1b273f;
     text-decoration: none;
 }
 
@@ -17,6 +32,7 @@ body{
 
 #pag #menu {
     background-color: #1b273f;
+    text-align: center;
     
 }
 #pag #menu img{
@@ -54,6 +70,32 @@ body{
 #pag #menu h4  {
     color: white;
     
+}
+#pag #menu span  {
+    color: white;
+    font-family: 'arial black', 'avant garde'; font-size: 16px;
+}
+
+#corpo{
+	background-image: url("/materialize/img/background-image.png");
+	background-repeat: no-repeat;
+	
+}
+
+.card-body {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 0;
+}
+
+.hora-data{
+	color:#354d7d;
+    
+    float: right;
+    
+ 
+    text-align: center;
 }
 
 .col-sm-10 .container-fluid .row .col-sm-12 .row .col-sm-3 .well-01{

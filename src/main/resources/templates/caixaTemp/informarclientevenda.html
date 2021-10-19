@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jam Tech</title>
+<!-- Icones-->
+<script src="https://kit.fontawesome.com/facfa71b8f.js"
+	crossorigin="anonymous"></script>
+<!-- Bootstrap-->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+<!-- CSS-->
+<link type="text/css" rel="stylesheet"
+	href="/materialize/css/adminCSS.css" media="screen,projection" />
+<!-- JavaScript-->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+	integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+	integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+	crossorigin="anonymous"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+	integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+	crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.11.2.js"></script>
+<script type="text/javascript">
+	jQuery(window).load(function($) {
+		atualizaRelogio();
+	});
+</script>
+
+
+</head>
+<body>
+
+
+	<!-- cabeÃ§alho-->
+	<nav id="cabecalho" class="navbar navbar-expand-md ">
+		<div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+			<a class="navbar-brand" href="/adminpag"><img
+				src="/materialize/img/logo.png" height="50px" width="75px"></a>
+			<ul class="navbar-nav ml-auto">
+
+
+				<li class="nav-item"><a href="/pagina_usuario">
+						<button type="button" class="btn btn-success">Minha conta</button>
+				</a></li>
+				<li class="nav-item">
+					<ul class="navbar-nav ml-auto">
+						<li class="nav-item dropdown"><a
+							class="nav-link dropdown-toggle" href="#" data-toggle="dropdown"
+							id="navDrop"> <i class="far fa-user"></i>
+						</a>
+
+							<div class="dropdown-menu">
+								<a href="/pagina_usuario" class="dropdown-item">Minha Conta</a>
+								<a href="/pagina_usuario" class="dropdown-item">Endereço</a>
+							</div></li>
+					</ul>
+				</li>
+				<li class="nav-item col-1"><a href="/logout">
+						<button type="button" class="btn btn-primary">Sair</button>
+				</a></li>
+			</ul>
+		</div>
+	</nav>
+	<!-- Fim cabeÃ§alho-->
+
+
+	<div id="pag" class="container-fluid">
+		<div class="row content">
+			<!--Menu Lateral-->
+			<div id="menu" class="col-sm-2 sidenav">
+				<br> <img src="/materialize/img/user.png"> <span
+					th:text="${username}"></span> <br> <br>
+				<p>
+					<button class="btn btn-primary btn-lg btn-block" type="button"
+						data-toggle="collapse" data-target="#collapse1"
+						aria-expanded="false" aria-controls="collapse1">ESTOQUE</button>
+				</p>
+				<div class="collapse" id="collapse1">
+					<div id="col" class="card card-body">
+						<a href="/cadastrarprodutos"><button type="button"
+								class="btn btn-info">CADASTRAR PRODUTOS</button></a> <a
+							href="/listaprodutos"><button type="button"
+								class="btn btn-info">VISUALIZAR PRODUTOS</button></a>
+					</div>
+				</div>
+				<br> <br>
+				<p>
+					<button class="btn btn-primary btn-lg btn-block" type="button"
+						data-toggle="collapse" data-target="#collapse2"
+						aria-expanded="false" aria-controls="collapse2">FRENTE DE
+						CAIXA</button>
+				</p>
+				<div class="collapse" id="collapse2">
+					<div id="col" class="card card-body">
+						<button type="button" class="btn btn-info">INICIAR VENDA</button>
+					</div>
+				</div>
+				<br> <br>
+				<p>
+					<button class="btn btn-primary btn-lg btn-block" type="button"
+						data-toggle="collapse" data-target="#collapse3"
+						aria-expanded="false" aria-controls="collapse3">
+						RELATÓRIOS</button>
+				</p>
+				<div class="collapse" id="collapse3">
+					<div id="col" class="card card-body">
+						<button type="button" class="btn btn-info">RELATÓRIO DE
+							VENDAS</button>
+						<button type="button" class="btn btn-info"
+							onclick=" permissaonegada()">FECHAMENTO DE CAIXA</button>
+						<button type="button" class="btn btn-info"
+							onclick=" permissaonegada()">GRÁFICO</button>
+					</div>
+				</div>
+				<br> <br>
+				<p>
+					<button class="btn btn-primary btn-lg btn-block" type="button"
+						data-toggle="collapse" data-target="#collapse4"
+						aria-expanded="false" aria-controls="collapse4">CLIENTES
+					</button>
+				</p>
+				<div class="collapse" id="collapse4">
+					<div id="col" class="card card-body">
+						<a href="/telaclientes"><button type="button"
+								class="btn btn-info">LISTA DE CLIENTES</button></a> <a
+							href="/cadastrarclientes"><button type="button"
+								class="btn btn-info">CADASTRAR CLIENTES</button></a>
+					</div>
+				</div>
+
+			</div>
+			<!-- Fim Menu Lateral-->
+
+			<div class="col-sm-10" id="corpo">
+				<div class="row no-gutters">
+					<div class="col-12 col-sm-6 col-md-8">
+						<div class="container-fluid">
+							<div class="row content">
+
+								<div class="col-sm-12 ">
+									<br> <br> <br>
+
+									<div class="row">
+
+										<form action="pesquisarProdutoVenda" method="post">
+											<div class="row">
+												<div class="col">
+													<label for="Descrição">Descrição</label> <input type="text"
+														class="form-control" name="descricao">
+												</div>
+
+											</div>
+											<button type="submit" class="btn btn-primary">Pesquisar</button>
+										</form>
+
+									</div>
+								</div>
+
+								<table class="table table-sm">
+									<thead>
+										<tr>
+											<th>ID</th>
+											<th>CPF - CNPJ</th>
+											<th>Razão Social</th>
+											<th>Nome Fantasia</th>
+											<th>Nome</th>
+											<th>E-Mail</th>
+											<th>Selecionar</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr th:each="clientes : ${listaCliente}">
+											<td th:text=${clientes.id}></td>
+											<td th:text=${clientes.cpf_cnpj}></td>
+											<td th:text=${clientes.razao_social}></td>
+											<td th:text=${clientes.nome_fantasia}></td>
+											<td th:text=${clientes.nome_cliente}></td>
+											<td th:text=${clientes.email}></td>
+											<td><a th:href="@{/selecionarcliente/selecionavenda/{idcliente}/{idvenda}(idcliente=${clientes.id},idvenda=${venda.id})}">Selecionar</a></td>
+										</tr>
+									<tbody>
+								</table>
+							</div>
+
+						</div>
+					</div>
+					
+				</div>
+			</div>
+
+
+
+		</div>
+
+
+	</div>
+</body>
+
+
+</html>

@@ -1,16 +1,27 @@
 package br.jamtech.model;
 
 import java.io.Serializable;
+import java.util.Collection;
+import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
+import br.jamtech.security.Role;
+
 @Entity
-public class UsuarioModel implements Serializable {
+public class UsuarioModel implements UserDetails {
 	
 	
 	private static final long serialVersionUID = 1L;
@@ -43,6 +54,65 @@ public class UsuarioModel implements Serializable {
 	@NotNull(message="Repita senha não pode ser nulo")
 	@NotEmpty(message="Repita senha pode ser vazio")
 	private String repitaSenhaUsu;
+
+	@OneToMany(fetch = FetchType.EAGER)
+	@JoinTable(name="usuarios_roles", 
+	joinColumns = @JoinColumn(name="usuario_id",
+	referencedColumnName = "id",
+	table = "UsuarioModel"),
+	
+	inverseJoinColumns = @JoinColumn(name="role_id",
+	referencedColumnName = "id",
+	table = "role")
+			)
+	
+	private List<Role> roles;
+	
+	@Override
+	public String toString() {
+		return "UsuarioModel [id=" + id + ", loginUsu=" + loginUsu + ", nomeUsu=" + nomeUsu + ", sobrenomeUsu="
+				+ sobrenomeUsu + ", emailUsu=" + emailUsu + ", idadeUsu=" + idadeUsu + ", senhaUsu=" + senhaUsu
+				+ ", repitaSenhaUsu=" + repitaSenhaUsu + "]";
+	}
+
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		return roles;
+	}
+
+	@Override
+	public String getPassword() {
+		return senhaUsu;
+	}
+
+	@Override
+	public String getUsername() {
+		return loginUsu;
+	}
+
+	@Override
+	public boolean isAccountNonExpired() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
+	@Override
+	public boolean isAccountNonLocked() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
+	@Override
+	public boolean isCredentialsNonExpired() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
+	@Override
+	public boolean isEnabled() {
+		// TODO Auto-generated method stub
+		return true;
+	}
 
 	
 	
@@ -116,13 +186,7 @@ public class UsuarioModel implements Serializable {
 		return serialVersionUID;
 	}
 
-	@Override
-	public String toString() {
-		return "UsuarioModel [id=" + id + ", loginUsu=" + loginUsu + ", nomeUsu=" + nomeUsu + ", sobrenomeUsu="
-				+ sobrenomeUsu + ", emailUsu=" + emailUsu + ", idadeUsu=" + idadeUsu + ", senhaUsu=" + senhaUsu
-				+ ", repitaSenhaUsu=" + repitaSenhaUsu + "]";
-	}
-
+	
 	
 	
 	

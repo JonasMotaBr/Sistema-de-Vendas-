@@ -9,7 +9,14 @@ public class indexController {
 	
 	@RequestMapping("/")
 	public String index() {
-	 return "index";	
+	 return "login";	
 	}
+	
+	
+	@RequestMapping("/403")
+	public String erroPermicao() {
+	 return "erroTemp/erropermicao";	
+	}
+
 
 }

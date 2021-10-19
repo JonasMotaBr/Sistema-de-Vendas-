@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jam Tech</title>
+<!-- Icones-->
+<script src="https://kit.fontawesome.com/facfa71b8f.js"
+	crossorigin="anonymous"></script>
+<!-- Bootstrap-->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+<!-- CSS-->
+<link rel="stylesheet" href="/materialize/css/cadasprod.css">
+<!-- JavaScript-->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+	integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+	integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+	crossorigin="anonymous"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+	integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+	crossorigin="anonymous"></script>
+<script type="text/javascript" src="js/hora.js"></script>
+
+
+</head>
+<body>
+
+
+	<!-- cabeÃ§alho-->
+	<nav id="cabecalho" class="navbar navbar-expand-md ">
+		<div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+			<a class="navbar-brand" href="/adminpag"><img
+				src="/materialize/img/logo.png" height="50px" width="75px"></a>
+			<ul class="navbar-nav ml-auto">
+
+
+				<li class="nav-item"><a href="/pagina_usuario">
+						<button type="button" class="btn btn-success">Minha conta</button>
+				</a></li>
+				<li class="nav-item">
+					<ul class="navbar-nav ml-auto">
+						<li class="nav-item dropdown"><a
+							class="nav-link dropdown-toggle" href="#" data-toggle="dropdown"
+							id="navDrop"> <i class="far fa-user"></i>
+						</a>
+
+							<div class="dropdown-menu">
+								<a href="/pagina_usuario" class="dropdown-item">Minha Conta</a>
+								<a href="/pagina_usuario" class="dropdown-item">Endereço</a>
+							</div></li>
+					</ul>
+				</li>
+				<li class="nav-item col-1"><a href="/logout">
+						<button type="button" class="btn btn-primary">Sair</button>
+				</a></li>
+			</ul>
+		</div>
+	</nav>
+	<!-- Fim cabeÃ§alho-->
+
+
+	<div id="pag" class="container-fluid">
+		<div class="row content">
+			<!--Menu Lateral-->
+			<div id="menu" class="col-sm-2 sidenav">
+				<br> <img src="/materialize/img/user.png"> <span
+					th:text="${username}"></span> <br> <br>
+				<p>
+					<button class="btn btn-primary btn-lg btn-block" type="button"
+						data-toggle="collapse" data-target="#collapse1"
+						aria-expanded="false" aria-controls="collapse1">ESTOQUE</button>
+				</p>
+				<div class="collapse" id="collapse1">
+					<div id="col" class="card card-body">
+						<a href="/cadastrarprodutos"><button type="button"
+								class="btn btn-info">CADASTRAR PRODUTOS</button></a> <a
+							href="/listaprodutos"><button type="button"
+								class="btn btn-info">VISUALIZAR PRODUTOS</button></a>
+					</div>
+				</div>
+				<br> <br>
+				<p>
+					<button class="btn btn-primary btn-lg btn-block" type="button"
+						data-toggle="collapse" data-target="#collapse2"
+						aria-expanded="false" aria-controls="collapse2">FRENTE DE
+						CAIXA</button>
+				</p>
+				<div class="collapse" id="collapse2">
+					<div id="col" class="card card-body">
+						<button type="button" class="btn btn-info">INICIAR VENDA</button>
+					</div>
+				</div>
+				<br> <br>
+				<p>
+					<button class="btn btn-primary btn-lg btn-block" type="button"
+						data-toggle="collapse" data-target="#collapse3"
+						aria-expanded="false" aria-controls="collapse3">
+						RELATÓRIOS</button>
+				</p>
+				<div class="collapse" id="collapse3">
+					<div id="col" class="card card-body">
+						<button type="button" class="btn btn-info">RELATÓRIO DE
+							VENDAS</button>
+						<button type="button" class="btn btn-info"
+							onclick=" permissaonegada()">FECHAMENTO DE CAIXA</button>
+						<button type="button" class="btn btn-info"
+							onclick=" permissaonegada()">GRÁFICO</button>
+					</div>
+				</div>
+				<br> <br>
+				<p>
+					<button class="btn btn-primary btn-lg btn-block" type="button"
+						data-toggle="collapse" data-target="#collapse4"
+						aria-expanded="false" aria-controls="collapse4">CLIENTES
+					</button>
+				</p>
+				<div class="collapse" id="collapse4">
+					<div id="col" class="card card-body">
+						<a href="/telaclientes"><button type="button"
+								class="btn btn-info">LISTA DE CLIENTES</button></a> <a
+							href="/cadastrarclientes"><button type="button"
+								class="btn btn-info">CADASTRAR CLIENTES</button></a>
+					</div>
+				</div>
+
+			</div>
+			<!-- Fim Menu Lateral-->
+
+			<div class="col-sm-10">
+			<br>
+			 
+			
+			
+			<p>CADASTRO CLIENTE</p>
+			<br>
+				<form action="actioncadastrarclientes" method="post" th:object=${clienteObj}>
+					<div class="form-row">
+					    <div class="form-group col-md-4">
+							<label for="inputPassword4">ID</label> <input name="id" class="form-control" th:field="*{id}" readonly="readonly">
+						</div>
+						<div class="form-group col-md-4">
+							<label for="inputEmail4">CNPJ / CPF</label> <input type="text"
+								class="form-control" name="cpf_cnpj" th:field="*{cpf_cnpj}">
+						</div>
+						<div class="form-group col-md-4">
+							<label for="inputPassword4">Nome Fantasia / Nome</label> <input
+								type="text"  name="nome_fantasia" class="form-control" th:field="*{nome_fantasia}">
+						</div>
+					</div>
+					
+				   
+					<div class="form-row">
+						<div class="form-group col-md-4">
+							<label >Razão Social</label> <input type="text"
+							class="form-control"	 name="razao_social" placeholder="Preço" th:field="*{razao_social}">
+						</div>
+						
+					</div>
+					<div class="form-row">
+						<div class="form-group col-md-4">
+							<label >E-Mail</label> <input type="text" class="form-control"
+								 name="email" placeholder="E-mail" th:field="*{email}">
+						</div>
+						
+					</div>
+				
+					<button type="submit" class="btn btn-primary">Salvar</button>
+				</form>
+				 <a href="/adminpag"><button type="submit" class="btn btn-success ">VOlTAR</button></a>
+				
+
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+</body>
+</html>

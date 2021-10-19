@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jam Tech</title>
+<!-- Icones-->
+<script src="https://kit.fontawesome.com/facfa71b8f.js"
+	crossorigin="anonymous"></script>
+<!-- Bootstrap-->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+<!-- CSS-->
+<link type="text/css" rel="stylesheet"
+	href="/materialize/css/caixaCSS.css" media="screen,projection" />
+<!-- JavaScript-->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+	integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+	integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+	crossorigin="anonymous"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+	integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+	crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.11.2.js"></script>
+<script type="text/javascript">
+	jQuery(window).load(function($) {
+		atualizaRelogio();
+	});
+</script>
+
+
+</head>
+<body>
+
+
+	<!-- cabeÃ§alho-->
+	<nav id="cabecalho" class="navbar navbar-expand-md ">
+		<div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+			<a class="navbar-brand" href="/adminpag"><img
+				src="/materialize/img/logo.png" height="50px" width="75px"></a>
+			<ul class="navbar-nav ml-auto">
+
+
+				<li class="nav-item"><a href="/pagina_usuario">
+						<button type="button" class="btn btn-success">Minha conta</button>
+				</a></li>
+				<li class="nav-item">
+					<ul class="navbar-nav ml-auto">
+						<li class="nav-item dropdown"><a
+							class="nav-link dropdown-toggle" href="#" data-toggle="dropdown"
+							id="navDrop"> <i class="far fa-user"></i>
+						</a>
+
+							<div class="dropdown-menu">
+								<a href="/pagina_usuario" class="dropdown-item">Minha Conta</a>
+								<a href="/pagina_usuario" class="dropdown-item">Endereço</a>
+							</div></li>
+					</ul>
+				</li>
+				<li class="nav-item col-1"><a href="/logout">
+						<button type="button" class="btn btn-primary">Sair</button>
+				</a></li>
+			</ul>
+		</div>
+	</nav>
+	<!-- Fim cabeÃ§alho-->
+
+
+	<div id="pag" class="container-fluid">
+		<div class="row content">
+			<!--Menu Lateral-->
+			<div id="menu" class="col-sm-2 sidenav">
+				<br> <img src="/materialize/img/user.png"> <span
+					th:text="${username}"></span> <br> <br>
+				<p>
+					<button class="btn btn-primary btn-lg btn-block" type="button"
+						data-toggle="collapse" data-target="#collapse1"
+						aria-expanded="false" aria-controls="collapse1">ESTOQUE</button>
+				</p>
+				<div class="collapse" id="collapse1">
+					<div id="col" class="card card-body">
+						<a href="/cadastrarprodutos"><button type="button"
+								class="btn btn-info">CADASTRAR PRODUTOS</button></a> <a
+							href="/listaprodutos"><button type="button"
+								class="btn btn-info">VISUALIZAR PRODUTOS</button></a>
+					</div>
+				</div>
+				<br> <br>
+				<p>
+					<button class="btn btn-primary btn-lg btn-block" type="button"
+						data-toggle="collapse" data-target="#collapse2"
+						aria-expanded="false" aria-controls="collapse2">FRENTE DE
+						CAIXA</button>
+				</p>
+				<div class="collapse" id="collapse2">
+					<div id="col" class="card card-body">
+						<button type="button" class="btn btn-info">INICIAR VENDA</button>
+					</div>
+				</div>
+				<br> <br>
+				<p>
+					<button class="btn btn-primary btn-lg btn-block" type="button"
+						data-toggle="collapse" data-target="#collapse3"
+						aria-expanded="false" aria-controls="collapse3">
+						RELATÓRIOS</button>
+				</p>
+				<div class="collapse" id="collapse3">
+					<div id="col" class="card card-body">
+						<button type="button" class="btn btn-info">RELATÓRIO DE
+							VENDAS</button>
+						<button type="button" class="btn btn-info"
+							onclick=" permissaonegada()">FECHAMENTO DE CAIXA</button>
+						<button type="button" class="btn btn-info"
+							onclick=" permissaonegada()">GRÁFICO</button>
+					</div>
+				</div>
+				<br> <br>
+				<p>
+					<button class="btn btn-primary btn-lg btn-block" type="button"
+						data-toggle="collapse" data-target="#collapse4"
+						aria-expanded="false" aria-controls="collapse4">CLIENTES
+					</button>
+				</p>
+				<div class="collapse" id="collapse4">
+					<div id="col" class="card card-body">
+						<a href="/telaclientes"><button type="button"
+								class="btn btn-info">LISTA DE CLIENTES</button></a> <a
+							href="/cadastrarclientes"><button type="button"
+								class="btn btn-info">CADASTRAR CLIENTES</button></a>
+					</div>
+				</div>
+
+			</div>
+			<!-- Fim Menu Lateral-->
+
+			<div class="col-sm-10" id="corpo">
+				<div class="row no-gutters">
+					<div class="col-12 col-sm-6 col-md-8">
+						<div class="container-fluid">
+							<div class="row content">
+
+								<div class="col-sm-12 ">
+									<br> <br> <br>
+
+									<div class="row">
+
+										<form action="pesquisarProdutoVenda" method="post">
+											<div class="row">
+												<div class="col">
+													<label for="Descrição">Descrição</label> <input type="text"
+														class="form-control" name="descricao">
+												</div>
+                                                 <button type="submit" class="btn btn-outline-success">Pesquisar</button>
+                                                  <a href="/adminpag"><button type="button" class="btn btn-outline-primary" style="height:80px">Voltar</button></a>
+											</div>
+											
+										</form>
+
+
+
+
+
+									</div>
+								</div>
+
+
+								<table class="table table-sm">
+									<thead>
+										<tr>
+											<th>CODIGO</th>
+											<th>DESCRIÇÂO</th>
+											<th>Preço</th>
+											<th>Quantidade</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr th:each="prod : ${produtos}">
+											<td th:text=${prod.id}></td>
+											<td th:text=${prod.descricao}></td>
+											<td th:text=${prod.preco}></td>
+											<td>
+												<form action="addProdutoVenda" method="post"
+													class="form-inline">
+
+													<input type="hidden" class="form-group mx-sm-3 mb-2"
+														name="id" th:value="${prod.id}"> <label
+														for="Descrição">Quantidade</label> <input type="text"
+														class="form-group mx-sm-3 mb-2" name="quantidade_vendido">
+
+													<button type="submit" class="btn btn-primary">Adcionar</button>
+												</form>
+											</td>
+										</tr>
+									<tbody>
+								</table>
+							</div>
+
+						</div>
+					</div>
+					<div class="col-6 col-md-4" style="background-color: #c9dce6;">
+						<p style="text-align: center">Lista de venda</p>
+
+						<table class="table">
+							<thead class="thead-dark">
+								<tr>
+									<th>CODIGO</th>
+									<th>DESCRIÇÂO</th>
+									<th>Preço</th>
+									<th>Quantidade</th>
+									<th></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr th:each="prod : ${listaprodutos}">
+									<td th:text=${prod.id}></td>
+									<td th:text=${prod.descricao}></td>
+									<td th:text=${prod.preco}></td>
+									<td th:text=${prod.quantidade_vendido}></td>
+								</tr>
+
+							</tbody>
+
+						</table>
+
+						<form action="addProdutoVenda" method="post" class="form-inline" onSubmit="return validaRadio();"  name="form1">
+							<input type="hidden" class="form-group mx-sm-3 mb-2"
+								name="finalizavenda" value="true"> <select
+								class="custom-select mr-sm-2" id="inlineFormCustomSelect"
+								name="formaPagamento">
+								<option selected>Forma de pagamento</option>
+								<option value="dinheiro">Dinheiro</option>
+								<option value="debito">Debito</option>
+								<option value="credito">Crédito</option>
+								<option value="pix">Pix</option>
+							</select>
+							
+							<label class="custom-control-label" for="customRadioInline1">Informar Cliente? </label>
+
+							<div class="custom-control custom-radio custom-control-inline">
+								<input type="radio" id="customRadioInline1"
+									name="informacliente" class="custom-control-input" value="true">
+								<label class="custom-control-label" for="customRadioInline1">
+									Sim</label>
+							</div>
+							<div class="custom-control custom-radio custom-control-inline">
+								<input type="radio" id="customRadioInline2"
+									name="informacliente" class="custom-control-input" value="false">
+								<label class="custom-control-label" for="customRadioInline2">
+									Não</label>
+							</div>
+
+							<button type="submit" class="btn btn-primary">Finalizar</button>
+						</form>
+
+
+					</div>
+				</div>
+			</div>
+
+
+
+		</div>
+
+
+	</div>
+	
+	  <script type="text/javascript">
+  
+
+		
+		function permissaonegada() {
+			alert("Conta de usuário sem acesso. Contate o administrador do sistema");
+			
+		}
+		 function validaRadio() {
+	          if (document.form1.informacliente[0].checked == false 
+	            && document.form1.informacliente[1].checked == false) {
+	            alert('Por favor, selecione "sim" ou "não", para informar cliente.');
+	            return false;
+	          }
+
+	           if (document.form1.formaPagamento.selectedIndex==0) {
+	            alert('Por favor, informe o método de pagamento');
+	            return false;
+	          }
+	          return true;
+	        }
+
+		
+	
+	</script>	
+</body>
+
+
+</html>
