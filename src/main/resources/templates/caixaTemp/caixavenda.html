@@ -158,8 +158,8 @@
 													<label for="Descrição">Descrição</label> <input type="text"
 														class="form-control" name="descricao">
 												</div>
-                                                 <button type="submit" class="btn btn-outline-success">Pesquisar</button>
-                                                  <a href="/adminpag"><button type="button" class="btn btn-outline-primary" style="height:80px">Voltar</button></a>
+                                                 <button type="submit" class="btn btn-success">Pesquisar</button>
+                                                  <a href="/adminpag"><button type="button" class="btn btn-primary" style="height:80px">Voltar</button></a>
 											</div>
 											
 										</form>
@@ -205,17 +205,17 @@
 
 						</div>
 					</div>
-					<div class="col-6 col-md-4" style="background-color: #c9dce6;">
+					<div class="col-6 col-md-4" style="background-color: #4f8de1;">
 						<p style="text-align: center">Lista de venda</p>
 
-						<table class="table">
+						<table  class="table">
 							<thead class="thead-dark">
 								<tr>
 									<th>Cod.</th>
 									<th>Descrição</th>
 									<th>Preço</th>
 									<th>Quant.</th>
-									<th>Remover</th>
+									
 								</tr>
 							</thead>
 							<tbody>
@@ -224,6 +224,7 @@
 									<td th:text=${prod.descricao}></td>
 									<td th:text=${prod.preco}></td>
 									<td th:text=${prod.quantidade_vendido}></td>
+									
 								</tr>
 							</tbody>
 							<thead class="thead-dark">
@@ -263,7 +264,7 @@
 									Não</label>
 							</div>
 
-							<button type="submit" class="btn btn-primary">Finalizar</button>
+							<button type="submit" class="btn btn-success">Finalizar</button>
 						</form>
 
 

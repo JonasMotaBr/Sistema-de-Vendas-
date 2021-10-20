@@ -150,7 +150,6 @@
 								<th>Preço custo</th>
 								<th>Codigo Barras</th>
 								<th>Editar</th>
-								<th>Excluir</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -162,7 +161,6 @@
 								<td th:text=${prod.preco_custo}></td>
 								<td th:text=${prod.codigo_barra}></td>
 								<td><a th:href="@{/editarprodutos/{idproduto}(idproduto=${prod.id})}">Editar</a></td>
-								<td><a th:href="@{/removerProduto/{idproduto}(idproduto=${prod.id})}">Remover</a></td>
 							</tr>
 						<tbody>
 					</table>

@@ -45,6 +45,7 @@ public class ControllerUsuario {
 	public ModelAndView paginaUsuario() {
 		// ******* Pegar usuario local para exibir ****************
 		ModelAndView modelview = new ModelAndView("/usuarioTemp/pagina_usuario");
+		modelview.addObject("username", getUsuarioLogado());
 //		Iterable<UsuarioModel> usuarioIt = usuarioreRpository.findAll();
 //		modelview.addObject("produtos", usuarioIt);
 		return modelview;
@@ -62,10 +63,12 @@ public class ControllerUsuario {
 		usuarioreRpository.save(usuarioModel);
 		ModelAndView modelview = new ModelAndView("/usuarioTemp/pagina_usuario");
 		Iterable<UsuarioModel> usuarios = usuarioreRpository.findAll();
+		modelview.addObject("username", getUsuarioLogado());
 		modelview.addObject("usuarios", usuarios);
 		modelview.addObject("usuarioObj", new UsuarioModel());
 		return modelview;
 	}
+	
 	
 
 	

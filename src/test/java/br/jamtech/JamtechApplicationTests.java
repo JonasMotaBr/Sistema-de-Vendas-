@@ -46,13 +46,41 @@ class JamtechApplicationTests {
 	@Test
 	public void addproduto() {
 		ProdutoModel pd = new ProdutoModel();
-		pd.setCodigo_barra(123);
-		pd.setDescricao("Fonte");
-		pd.setPreco(50.00);
-		pd.setPreco_custo(25.00);
-		pd.setQuantidade(2);
+		pd.setCodigo_barra(2134513215);
+		pd.setDescricao("Fonte 500W");
+		pd.setPreco(230.00);
+		pd.setPreco_custo(100.00);
+		pd.setQuantidade(20);
+		ProdutoModel pd2 = new ProdutoModel();
+		pd2.setCodigo_barra(123);
+		pd2.setDescricao("Gabinete Corsair");
+		pd2.setPreco(399.00);
+		pd2.setPreco_custo(180.00);
+		pd2.setQuantidade(8);
+		ProdutoModel pd3 = new ProdutoModel();
+		pd3.setCodigo_barra(123);
+		pd3.setDescricao("Gabinete Bluecase");
+		pd3.setPreco(250.00);
+		pd3.setPreco_custo(125.00);
+		pd3.setQuantidade(6);
+		ProdutoModel pd4 = new ProdutoModel();
+		pd4.setCodigo_barra(123);
+		pd4.setDescricao("Mouse Corsair");
+		pd4.setPreco(250.00);
+		pd4.setPreco_custo(100.00);
+		pd4.setQuantidade(4);
+		ProdutoModel pd5 = new ProdutoModel();
+		pd5.setCodigo_barra(123);
+		pd5.setDescricao("Cooler RGB");
+		pd5.setPreco(50.00);
+		pd5.setPreco_custo(20.00);
+		pd5.setQuantidade(19);
 		
 		pr.save(pd);
+		pr.save(pd2);
+		pr.save(pd3);
+		pr.save(pd4);
+		pr.save(pd5);
 	}
 	
 
@@ -60,11 +88,25 @@ class JamtechApplicationTests {
 	public void addCliente() {
 		ClienteModel cliente = new ClienteModel();
 		cliente.setCpf_cnpj("55566644412");
-		cliente.setRazao_social("Tech");
-		cliente.setNome_fantasia("nome_fantasia");
-		cliente.setNome_cliente("nome_cliente");
-		cliente.setEmail("email");
+		cliente.setRazao_social("Lojao Eletronicos");
+		cliente.setNome_fantasia("Lojao Eletronicos");
+		cliente.setNome_cliente("");
+		cliente.setEmail("lojao@gmail.com");
+		ClienteModel cliente2 = new ClienteModel();
+		cliente2.setCpf_cnpj("0642124842");
+		cliente2.setRazao_social("");
+		cliente2.setNome_fantasia("");
+		cliente2.setNome_cliente("Renata");
+		cliente2.setEmail("renata@gmail.com");
+		ClienteModel cliente3 = new ClienteModel();
+		cliente3.setCpf_cnpj("06846120214");
+		cliente3.setRazao_social("");
+		cliente3.setNome_fantasia("");
+		cliente3.setNome_cliente("Clara");
+		cliente3.setEmail("clara@gmail.com");
 		clienteRepository.save(cliente);
+		clienteRepository.save(cliente2);
+		clienteRepository.save(cliente3);
 	}
 
 	@Test

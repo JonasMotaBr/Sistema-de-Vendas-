@@ -93,12 +93,13 @@ public class ControllerVenda {
 //		ModelAndView andView = new ModelAndView("/caixaTemp/caixavenda");
 //        System.out.println(idproduto);		
 //		return null;
-//	}
+//	} 
 	
 	@RequestMapping(method = RequestMethod.POST, value = "**/addProdutoVenda")
 	public ModelAndView addProdutoListaVenda(ProdutoModel produtoModel, 
 			@RequestParam(required = false) String formaPagamento,
-			@RequestParam(required = false) String informacliente) {
+			@RequestParam(required = false) String informacliente,
+			@RequestParam(required = false) String removerId) {
 		
 		ModelAndView andView = new ModelAndView("/caixaTemp/caixavenda");
 		ModelAndView paginacliente = new ModelAndView("/caixaTemp/informarclientevenda");
@@ -113,7 +114,6 @@ public class ControllerVenda {
 		       if(produtoModel.getId()!=null) {
 		    	   produto.setQuantidade_vendido(produtoModel.getQuantidade_vendido());
 		    	   listaparalela.add(produto);
-		    	Iterable<ProdutoModel> produtoIt = listaparalela;
 		    	 double valor=0;
 		    	 double total=0;
 		    	 valor=+(produto.getPreco()*produto.getQuantidade_vendido());
@@ -123,7 +123,7 @@ public class ControllerVenda {
                 	total += t.doubleValue();                }
                 val = total;
 		    	andView.addObject("valorTotal",total );
-		   		andView.addObject("listaprodutos", produtoIt);
+		   		andView.addObject("listaprodutos", listaparalela);
 		   		andView.addObject("username", getUsuarioLogado());
 		    	   return andView;
 		       }
@@ -189,9 +189,11 @@ public class ControllerVenda {
 	
 	
 	@GetMapping("/actionVisualizarVenda/{idvenda}")
-	public ModelAndView removerProduto(@PathVariable("idvenda") Long idvenda) {
+	public ModelAndView visualizarVenda(@PathVariable("idvenda") Long idvenda) {
 		ModelAndView modelview = new ModelAndView("/relatoriosTemp/visualizarvenda");
 		VendaModel visulVenda = vendaRepository.buscarVendaPorId(idvenda);
+		
+		
 		
 		 modelview.addObject("listaVisualizarVenda", visulVenda.getListaproduto());
 		
