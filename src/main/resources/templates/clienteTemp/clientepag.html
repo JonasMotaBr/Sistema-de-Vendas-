@@ -148,6 +148,7 @@
 							<tr>
 								<th>ID</th>
 								<th>CNPJ/CPF</th>
+								<th>Nome</th>
 								<th>Razão Social</th>
 								<th>Nome Fantasia</th>
 								<th>E-Mail</th>
@@ -158,6 +159,7 @@
 							<tr th:each="clien : ${clientes}">
 								<td th:text=${clien.id}></td>
 								<td th:text=${clien.cpf_cnpj}></td>
+								<td th:text=${clien.nome_cliente}></td>
 								<td th:text=${clien.razao_social}></td>
 								<td th:text=${clien.nome_fantasia}></td>
 								<td th:text=${clien.email}></td>
