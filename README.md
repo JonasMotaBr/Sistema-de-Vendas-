@@ -13,6 +13,7 @@ Tabela de conteúdos
    * [Descrição](#Descrição-do-Projeto)
    * [Features](#Features)
    * [Telas](#Telas)
+   * [Testes](#Testes)
    * [Tecnologias](#🛠-Tecnologias)
    * [Conclusão](#Conclusão)
 <!--te-->
@@ -52,7 +53,7 @@ Tabela de conteúdos
 
 
 ## Testes
-<p>Testes de performance e carga, foram realizados utilizando ApacheJmeter. Imagem mostra os principais resultados obtidos, onde o sistema suporta até 694 usuários
+<p>Testes de performance e carga. Foram realizados testes utilizando ApacheJmeter, a imagem mostra os principais resultados obtidos, onde o sistema suporta até 694 usuários
 simultâneos.</p>
  <img alt="NextLevelWeek" title="#NextLevelWeek" src="https://user-images.githubusercontent.com/55200127/142091448-4eb72a09-191e-4ad3-9b80-72936597f5ba.png" />
 
