@@ -111,13 +111,7 @@ class JamtechApplicationTests {
 
 	@Test
 	public void addUsuario() {
-		UsuarioModel usuario = new UsuarioModel();
-		usuario.setEmailUsu("emailUsu");
-		usuario.setIdadeUsu(28);
-		usuario.setLoginUsu("login");
-		usuario.setNomeUsu("nome");
-		usuario.setRepitaSenhaUsu("rep");
-		usuario.setSobrenomeUsu("asd");
+
 	}
 
 	@Test
